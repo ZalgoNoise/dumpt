@@ -1,0 +1,31 @@
+#!/bin/sh
+
+function checkFile() {
+    inc=$1
+    filename="/data/out/tcp-stunnel"
+    ext=".pcap"
+
+    if [ -z ${inc} ]
+    then
+        if ! [ -f ${filename}${ext} ]
+        then
+            outfile=${filename}${ext}
+        else
+            checkFile 1
+        fi
+    else
+        if ! [ -f ${filename}-${inc}${ext} ]
+        then
+            outfile=${filename}-${inc}${ext}
+        else
+            checkFile $((inc+1))
+        fi
+    fi
+}
+
+if [ -z ${outfile} ]
+then
+    checkFile
+fi
+
+tcpdump -i eth0 -v -w ${outfile}
