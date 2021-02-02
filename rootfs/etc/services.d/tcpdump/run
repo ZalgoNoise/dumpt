@@ -10,6 +10,8 @@ function checkFile() {
         if ! [ -f ${filename}${ext} ]
         then
             outfile=${filename}${ext}
+            touch ${outfile}
+            echo "[tcpdump] Defined .pcap file as ${outfile}"
         else
             checkFile 1
         fi
@@ -17,6 +19,8 @@ function checkFile() {
         if ! [ -f ${filename}-${inc}${ext} ]
         then
             outfile=${filename}-${inc}${ext}
+            touch ${outfile}
+            echo "[tcpdump] Defined .pcap file as ${outfile}"
         else
             checkFile $((inc+1))
         fi
@@ -25,7 +29,10 @@ function checkFile() {
 
 if [ -z ${outfile} ]
 then
+    echo "[tcpdump] Allocating .pcap file"
     checkFile
 fi
 
-tcpdump -i eth0 -v -w ${outfile}
+echo "[tcpdump] Starting tcpdump:"
+echo "[tcpdump]     tcpdump -i eth0 -vvv -w ${outfile}"
+tcpdump -i eth0 -vvv -w ${outfile}

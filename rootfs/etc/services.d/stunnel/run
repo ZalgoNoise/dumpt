@@ -1,2 +1,5 @@
 #!/bin/sh
-sh -c stunnel /etc/stunnel/stunnel.conf
+
+echo "[stunnel] Starting stunnel service"
+echo "[stunnel]     stunnel /etc/stunnel/stunnel.conf"
+stunnel /etc/stunnel/stunnel.conf
