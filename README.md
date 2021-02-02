@@ -28,7 +28,7 @@ docker run -it \
     zalgonoise/dumpt:latest
 ```
 
-_with a `.crt`/`.key` pair:
+_with a `.crt`/`.key` pair_:
 
 ```
 docker run -it \
