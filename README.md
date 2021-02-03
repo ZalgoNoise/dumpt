@@ -7,7 +7,7 @@ _________
 ### Description
 
 
-An Stunnel proxy server with tcpdump, to monitor LDAP traffic when configured with Google Workspace Secure LDAP.
+An Stunnel proxy server with tcpdump, to monitor network traffic when configured with Google Workspace Secure LDAP.
 
 This container will allow you to add the `.crt`/`.key` pair generated in your Admin Console (as a zip file, or individual `.crt`/`.key` files) on the `/data` folder in the container, which in turn will pre-configure the Stunnel for Google Workspace Secure LDAP.
 
