@@ -90,5 +90,5 @@ Your certificate and key are moved to `/data/stunnel.*` in conformity to this co
 The command ran is the following:
 
 ```bash
-tcpdump -i eth0 -v -w ${outfile}
+tcpdump -i eth0 -vvv -w ${outfile}
 ```
